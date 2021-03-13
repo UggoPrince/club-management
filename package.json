@@ -47,8 +47,8 @@
     "pg-hstore": "^2.3.3",
     "regenerator-runtime": "^0.13.7",
     "sequelize": "^6.5.0",
-    "swagger-jsdoc": "^7.0.0-rc.6",
-    "swagger-ui-express": "^4.1.6",
+    "swagger-jsdoc": "^4.3.2",
+    "swagger-ui-express": "^4.1.4",
     "validate.js": "^0.13.1"
   },
   "devDependencies": {

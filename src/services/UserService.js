@@ -1,4 +1,5 @@
 import { User } from '../database/models';
+import bcrypter from '../utilities/Bcrypter';
 
 /**
  * UserService class handles user database activities
@@ -59,5 +60,17 @@ export default class UserService {
     const options = { where: { userName } };
     const user = await UserService.getUser(options);
     return user;
+  }
+
+  /**
+   * compares sent password with password in the database
+   * @async
+   * @method checkPassword
+   * @param {string} sentPassword
+   * @param {string} dbPassword
+   * @returns {boolean} Response
+   */
+  static checkPassword(sentPassword, dbPassword) {
+    return bcrypter.comparePassword(sentPassword, dbPassword);
   }
 }
