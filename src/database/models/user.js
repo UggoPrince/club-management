@@ -7,8 +7,12 @@ const {
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    static associate() {
-      // define association here
+    static associate(models) {
+      User.hasMany(models.Club, {
+        as: "club",
+        foreignKey: "adminId",
+        foreignKeyConstraint: true
+      });
     }
   };
   User.init({
