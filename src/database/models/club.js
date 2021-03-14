@@ -10,6 +10,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "adminId",
         foreignKeyConstraint: true
       });
+      Club.hasOne(models.Invite, {
+        as: "invite",
+        foreignKey: "clubId",
+        foreignKeyConstraint: true
+      });
     }
   };
   Club.init({

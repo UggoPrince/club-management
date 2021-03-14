@@ -73,4 +73,19 @@ export default class UserService {
   static checkPassword(sentPassword, dbPassword) {
     return bcrypter.comparePassword(sentPassword, dbPassword);
   }
+
+  /**
+   * get user by id
+   * @async
+   * @method getUserById
+   * @param {integer} id
+   * @returns {object} Response
+   */
+  static async getUserById(id) {
+    const user = await User.findByPk(id).then(result => {
+      if (result) return result.dataValues;
+      return result;
+    });
+    return user;
+  }
 }
