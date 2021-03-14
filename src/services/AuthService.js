@@ -24,4 +24,25 @@ export default class AuthService {
     });
     return token;
   }
+
+  /**
+   * Decode sent token string
+   * @async
+   * @method verifyToken
+   * @param {string} token - token to be decoded
+   * @returns {object} decodedObject
+   */
+  static async verifyToken(sentToken) {
+    const userToken = await jwt.verify(
+      sentToken,
+      JWT_SECRET,
+      (err, decode) => {
+        if (err) {
+          return { tokenExp: true, error: err };
+        }
+        return { tokenExp: false, decode };
+      },
+    );
+    return userToken;
+  }
 }

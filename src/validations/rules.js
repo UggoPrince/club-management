@@ -30,3 +30,12 @@ export const passwordRule = {
     },
   },
 };
+
+export const descriptionRule = text => ({
+  [text]: {
+    presence: true,
+    length: {
+      minimum: 2,
+    },
+  },
+});
