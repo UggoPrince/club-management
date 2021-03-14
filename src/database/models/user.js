@@ -13,6 +13,16 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "adminId",
         foreignKeyConstraint: true
       });
+      User.hasMany(models.Invite, {
+        as: "invites",
+        foreignKey: "inviteeId",
+        foreignKeyConstraint: true
+      });
+      User.hasMany(models.Invite, {
+        as: "sent_invites",
+        foreignKey: "adminId",
+        foreignKeyConstraint: true
+      });
     }
   };
   User.init({

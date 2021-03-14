@@ -39,3 +39,12 @@ export const descriptionRule = text => ({
     },
   },
 });
+
+export const idRule = id => ({
+  [id]: {
+    presence: true,
+    format: {
+      pattern: '^[0-9]+$',
+    },
+  },
+});
